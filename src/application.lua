@@ -12,6 +12,8 @@ local function read_dht()
     print("ERROR: DHT checksum")
   elseif status == dht.ERROR_TIMEOUT then
     print("ERROR: DHT Timeout. Sensor connected to pin " .. config.DHT_PIN .. "?")
+    hum = "err, DHT"
+    temp = "err, DHT"
   end
 end
 
@@ -19,8 +21,8 @@ end
 -- Publish to MQTT broker
 local function publish()
   read_dht()
-  m:publish(config.TOPIC .. "/hum",hum,0,0)
-  m:publish(config.TOPIC .. "/temp",temp,0,0)
+  m:publish(config.TOPIC .. "hum",hum,0,0)
+  m:publish(config.TOPIC .. "temp",temp,0,0)
 end
 
 
