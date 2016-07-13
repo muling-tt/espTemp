@@ -7,7 +7,7 @@ uart.setup(0, 9600, 8, 0, 1, 1 )
 print("Init")
 config = require("config")
 setup = require("setup")
---app = require("application")
+app = require("application")
 
 setup.run()
 
