@@ -4,10 +4,9 @@ m = nil
 
 -- Get temperature and humidity from DHT-22
 local function read_dht()
-  -- Don't have a sensor yet, so I don't know if this actually works ;)
   status, temp, hum, temp_dec, humi_dec = dht.read(config.DHT_PIN)
   if status == dht.OK then
-  print("DHT Temp: ".. temp .. ";" .. "hum: " .. hum)
+  print("DHT temp: ".. temp .. ";" .. "hum: " .. hum)
   elseif status == dht.ERROR_CHECKSUM then
     print("ERROR: DHT checksum")
   elseif status == dht.ERROR_TIMEOUT then
